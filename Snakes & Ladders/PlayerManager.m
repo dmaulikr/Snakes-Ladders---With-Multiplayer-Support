@@ -27,9 +27,9 @@
     NSArray *numberArray = @[@"1",@"2",@"3",@"4"];
     NSString *player = @"Player ";
     
-    for (int i=numberOfPlayers; i < 0; i--){
+    for (int i=1; i < numberOfPlayers + 1; i++){
         
-        NSString *playerName = [player stringByAppendingString:numberArray[numberOfPlayers-1]];
+        NSString *playerName = [player stringByAppendingString:numberArray[i-1]];
         Player *player = [[Player alloc]initWithName:playerName];
         [self.players addObject:player];
         
@@ -48,18 +48,19 @@
 
 - (void)roll {
     
-    [self.players[self.currentIndex] roll];
+    [[self currentActivePlayer] roll];
      self.currentIndex++;
 }
 - (void)output {
     
-    [self.players[self.currentIndex] output];
+    [[self currentActivePlayer] output];
     
 }
 - (void)gameStateChecker {
     
-    [self.players[self.currentIndex] gameStateChecker];
-    if (self.players[self.currentIndex].gameOver == YES){
+    [[self currentActivePlayer] gameStateChecker];
+    Player *gameOverChecker = [self currentActivePlayer];
+    if (gameOverChecker.gameOver == YES){
         //end game
         self.gameOver = YES;
     }

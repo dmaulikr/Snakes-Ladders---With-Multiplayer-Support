@@ -27,18 +27,19 @@ int main(int argc, const char * argv[]) {
                 if (([userInput intValue] > 0) && ([userInput intValue] < 5)){
                         //good input, have playerManager create players
                     [playerManager createPlayers:[userInput intValue]];
-                    
+                    NSLog(@"%lu players successfully created!",(unsigned long)[playerManager.players count]);
                 } else {
                     NSLog(@"Invalid input. Please enter a number between 1 and 4 to continue.");
                 }
             
             }
             
-            NSLog(@"%lu players created!",(unsigned long)[playerManager.players count]);
+            NSLog(@"Please press 'r' to roll:");
             NSString *userInput = [InputHandler initiateUserInteraction];
   
-            if ([parsedString containsString:@"r"]) {
-//                [playerManager.activePlayer roll];
+            if ([userInput containsString:@"r"]) {
+                [playerManager roll];
+                [playerManager gameStateChecker];
                 
             }
 //            [readyPlayerOne gameStateChecker];
@@ -46,7 +47,7 @@ int main(int argc, const char * argv[]) {
         }
         
         }
-    }
+
     
     return 0;
 }

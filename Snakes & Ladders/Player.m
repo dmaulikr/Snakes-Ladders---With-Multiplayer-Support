@@ -63,44 +63,34 @@
     NSLog(@"%@ rolled a %ld",self.name, (long)randomValue);
     NSString *valueString = [NSString stringWithFormat:@"%lu",self.currentSquare + randomValue];
     
-    if (self.currentSquare <= 99) {
-        
         if ([[self.gameLogic valueForKey:valueString]integerValue]) {
+            
             self.currentSquare = [[self.gameLogic valueForKey:valueString]integerValue];
-            [self bonusTypeChecker:valueString];
-            [self output];
             
-        } else {
-        
+            if ([[self.gameLogic valueForKey:valueString]intValue] > [valueString intValue]) {
+                
+                NSLog(@"%@",[NSString stringWithFormat:@"Bonus! You landed on a ladder!"]);
+                NSLog(@"%@ jumped from square %ld to %ld",self.name,self.currentSquare-randomValue,(long)self.currentSquare);
+                
+            } else {
+                
+                NSLog(@"%@",[NSString stringWithFormat:@"Ahhh!!! SNAKEEE!!!!!"]);
+                NSLog(@"%@ jumped from square %ld to %ld",self.name,self.currentSquare-randomValue,(long)self.currentSquare);
+                
+            }
+            
+        }else {
+            
             self.currentSquare += randomValue;
-            [self bonusTypeChecker:valueString];
             [self output];
-            
+           
         }
     }
-}
+
 
 - (void)output {
     
     NSLog(@"%@ landed on square: %ld",self.name, (long)self.currentSquare);
-}
-
-- (void)bonusTypeChecker:(NSString *)stringValue {
-    
-    
-    if ([self.gameLogic valueForKey:stringValue]) {
-        
-        if ([[self.gameLogic valueForKey:stringValue]intValue] > [stringValue intValue]) {
-        
-            NSLog(@"%@",[NSString stringWithFormat:@"Bonus! You landed on a ladder!"]);
-        
-        } else {
-           
-            NSLog(@"%@",[NSString stringWithFormat:@"Ahhh!!! SNAKEEE!!!!!"]);
-        }
-    }
-    
-    
 }
 
 - (void)gameStateChecker {
