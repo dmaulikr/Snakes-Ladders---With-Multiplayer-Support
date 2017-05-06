@@ -39,10 +39,8 @@ int main(int argc, const char * argv[]) {
   
             if ([userInput containsString:@"r"]) {
                 [playerManager roll];
-                [playerManager gameStateChecker];
-                
-            }
-//            [readyPlayerOne gameStateChecker];
+            } //add other game logic commands
+
             
         }
         

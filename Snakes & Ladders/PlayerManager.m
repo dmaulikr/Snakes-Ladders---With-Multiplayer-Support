@@ -49,6 +49,7 @@
 - (void)roll {
     
     [[self currentActivePlayer] roll];
+    [self gameStateChecker];
      self.currentIndex++;
 }
 - (void)output {
