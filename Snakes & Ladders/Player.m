@@ -72,8 +72,8 @@
                 
                 NSLog(@"%@",[NSString stringWithFormat:@"Bonus! You landed on a ladder!"]);
                 //calculate value change here
-                //use ending value of (dictionary - intValue of the key) - random value to get starting square
-                NSInteger changeValue = ([self.gameLogic[valueString]intValue]-[valueString intValue]) - randomValue;
+                //use ending value of (dictionary - intValue of the key) + random value to get starting square
+                NSInteger changeValue = ([self.gameLogic[valueString]intValue]-[valueString intValue]) + randomValue;
                 NSLog(@"%@ jumped from square %ld to %ld",self.name,self.currentSquare-changeValue,(long)self.currentSquare);
                 
             } else {
@@ -82,7 +82,7 @@
                 //calculate value change
                 //dict key - value - roll
                 NSInteger changeValue = ([valueString intValue]-[self.gameLogic[valueString]intValue])-randomValue;
-                NSLog(@"%@ slid from square %ld to %ld",self.name,self.currentSquare-changeValue,(long)self.currentSquare);
+                NSLog(@"%@ slid from square %ld to %ld",self.name,self.currentSquare+changeValue,(long)self.currentSquare);
                 
             }
             
