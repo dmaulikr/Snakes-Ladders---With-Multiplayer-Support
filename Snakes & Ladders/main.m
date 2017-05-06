@@ -14,39 +14,60 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         PlayerManager *playerManager = [[PlayerManager alloc]init];
+        BOOL gameLoop = YES;
         
-        
+       
+        while (gameLoop) {
+            
+        [playerManager.players removeAllObjects];
+        playerManager.gameOver = NO;
         printf("Welcome to Snakes and Ladders!\n\nPlease enter a number between 1 and 4 to select the amount of players for your game:\n");
-        while (!playerManager.gameOver) {
-            
-            
-            while ([playerManager.players count] == 0) {
-            
+            while (!playerManager.gameOver) {
+                
+                BOOL immediateQuit = NO;
+                while ([playerManager.players count] == 0) {
+                
+                    NSString *userInput = [InputHandler initiateUserInteraction];
+                    
+                    if (([userInput intValue] > 0) && ([userInput intValue] < 5)){
+                            //good input, have playerManager create players
+                        [playerManager createPlayers:[userInput intValue]];
+                        NSLog(@"%lu players successfully created!",(unsigned long)[playerManager.players count]);
+                    }else if ([userInput isEqualToString:@"quit"]) {
+                        immediateQuit = YES;
+                        break;
+                    
+                    }else {
+                        NSLog(@"Invalid input. Please enter a number between 1 and 4 to continue.");
+                    }
+                
+                }
+                if (immediateQuit) {
+                    gameLoop = NO;
+                    break;
+                }
+
+                NSLog(@"Please press 'r' to roll:");
                 NSString *userInput = [InputHandler initiateUserInteraction];
                 
-                if (([userInput intValue] > 0) && ([userInput intValue] < 5)){
-                        //good input, have playerManager create players
-                    [playerManager createPlayers:[userInput intValue]];
-                    NSLog(@"%lu players successfully created!",(unsigned long)[playerManager.players count]);
-                } else {
-                    NSLog(@"Invalid input. Please enter a number between 1 and 4 to continue.");
+                    if ([userInput isEqualToString:@"r"]) {
+                        
+                        [playerManager roll];
+                        NSLog(@"%@",[playerManager score]);
+                        
+                }   else if ([userInput isEqualToString:@"quit"]) {
+                        gameLoop = NO;
+                    
+                        break;
                 }
-            
-            }
-            
-            NSLog(@"Please press 'r' to roll:");
-            NSString *userInput = [InputHandler initiateUserInteraction];
-  
-            if ([userInput isEqualToString:@"r"]) {
-                [playerManager roll];
-                NSLog(@"%@",[playerManager score]);
-            } //add other game logic commands
+ 
+                }
+                               //add other game logic commands
 
             
         }
-        
-        }
-
-    
+      
+                           
+}
     return 0;
 }
