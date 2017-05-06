@@ -30,7 +30,7 @@ The app will inform the user which square they have landed on and whether they h
 When the user passes square 100 the game is over. Rnd the game and congratulate them.
 */
 
-#include "Player.h"
+#import "Player.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
