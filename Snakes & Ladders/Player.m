@@ -64,9 +64,8 @@
     NSString *valueString = [NSString stringWithFormat:@"%lu",self.currentSquare + randomValue];
     
         if ([[self.gameLogic valueForKey:valueString]integerValue]) {
-            
-            self.currentSquare = [[self.gameLogic valueForKey:valueString]integerValue];
-            
+        
+                self.currentSquare = [[self.gameLogic valueForKey:valueString]integerValue];
             
             if ([[self.gameLogic valueForKey:valueString]intValue] > [valueString intValue]) {
                 
@@ -88,9 +87,14 @@
             
         }else {
             
-            self.currentSquare += randomValue;
-            [self output];
-           
+            if ((self.currentSquare + randomValue) <= 100 ) {
+                self.currentSquare += randomValue;
+                [self output];
+            } else {
+                self.currentSquare = 100;
+                [self output];
+            }
+                       
         }
     }
 
@@ -102,8 +106,8 @@
 
 - (void)gameStateChecker {
     
-    if (self.currentSquare >= 100) {
-//        NSLog(@"Congratulations! You win!");
+    if (self.currentSquare == 100) {
+        NSLog(@"Congratulations %@! You win!",self.name);
         //disable loop
         self.gameOver = YES;
         
