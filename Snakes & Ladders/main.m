@@ -27,7 +27,8 @@ int main(int argc, const char * argv[]) {
                 BOOL immediateQuit = NO;
                 while ([playerManager.players count] == 0) {
                 
-                    NSString *userInput = [InputHandler initiateUserInteraction];
+                    NSString *userRawInput = [InputHandler initiateUserInteraction];
+                    NSString *userInput = [userRawInput lowercaseString];
                     
                     if (([userInput intValue] > 0) && ([userInput intValue] < 5)){
                             //good input, have playerManager create players
@@ -48,7 +49,8 @@ int main(int argc, const char * argv[]) {
                 }
 
                 NSLog(@"Please press 'r' to roll:");
-                NSString *userInput = [InputHandler initiateUserInteraction];
+                NSString *userRawInput = [InputHandler initiateUserInteraction];
+                NSString *userInput = [userRawInput lowercaseString];
                 
                     if ([userInput isEqualToString:@"r"]) {
                         
