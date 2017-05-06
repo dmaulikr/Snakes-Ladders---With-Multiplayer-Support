@@ -13,7 +13,9 @@
 @property (nonatomic) NSInteger currentSquare;
 @property (nonatomic) NSDictionary *gameLogic;
 @property (nonatomic) BOOL gameOver;
+@property (nonatomic) NSString *name;
 
+- (instancetype)initWithName:(NSString *)name;
 - (void)roll;
 - (void)gameStateChecker;
 

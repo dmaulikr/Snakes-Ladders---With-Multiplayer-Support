@@ -27,9 +27,34 @@
                        @"95" : @75,
                        @"99" : @78};
         _gameOver = NO;
+        _name = @"Player 1";
     }
     
     return self;
+}
+- (instancetype)initWithName:(NSString *)name {
+    
+    if (self = [super init]){
+        
+        _currentSquare = 0;
+        _gameLogic = @{@"4" : @14,
+                       @"9" : @31,
+                       @"17" : @7,
+                       @"20" : @38,
+                       @"28" : @84,
+                       @"40" : @59,
+                       @"51" : @67,
+                       @"63" : @81,
+                       @"64" : @60,
+                       @"89" : @26,
+                       @"95" : @75,
+                       @"99" : @78};
+        _gameOver = NO;
+        _name = name;
+    }
+    
+    return self;
+    
 }
 
 -(void)roll {

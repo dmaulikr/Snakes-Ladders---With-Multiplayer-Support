@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		92FD60FD1EBE2EC000817FD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD60FC1EBE2EC000817FD0 /* main.m */; };
 		92FD61051EBE302800817FD0 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD61041EBE302800817FD0 /* Player.m */; };
+		92FD61081EBE530200817FD0 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD61071EBE530200817FD0 /* PlayerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		92FD60FC1EBE2EC000817FD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92FD61031EBE302800817FD0 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		92FD61041EBE302800817FD0 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		92FD61061EBE530200817FD0 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		92FD61071EBE530200817FD0 /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				92FD60FC1EBE2EC000817FD0 /* main.m */,
 				92FD61031EBE302800817FD0 /* Player.h */,
 				92FD61041EBE302800817FD0 /* Player.m */,
+				92FD61061EBE530200817FD0 /* PlayerManager.h */,
+				92FD61071EBE530200817FD0 /* PlayerManager.m */,
 			);
 			path = "Snakes & Ladders";
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			files = (
 				92FD61051EBE302800817FD0 /* Player.m in Sources */,
 				92FD60FD1EBE2EC000817FD0 /* main.m in Sources */,
+				92FD61081EBE530200817FD0 /* PlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +260,7 @@
 				92FD61021EBE2EC000817FD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
