@@ -39,6 +39,7 @@ int main(int argc, const char * argv[]) {
   
             if ([userInput isEqualToString:@"r"]) {
                 [playerManager roll];
+                NSLog(@"%@",[playerManager score]);
             } //add other game logic commands
 
             

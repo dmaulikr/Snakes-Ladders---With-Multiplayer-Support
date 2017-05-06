@@ -19,5 +19,6 @@
 - (void)roll;
 - (void)output;
 - (void)gameStateChecker;
+- (NSString *)score;
 
 @end

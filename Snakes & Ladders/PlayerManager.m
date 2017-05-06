@@ -68,4 +68,18 @@
     
 }
 
+- (NSString *)score{
+    NSMutableString *gameScore = [[NSMutableString alloc]initWithString:@"Current score:"];
+    
+    for (Player *player in self.players) {
+        
+        [gameScore appendFormat:@" %@,",[player score]];
+        
+    }
+    
+    
+    return [gameScore substringToIndex:[gameScore length]-1];
+    //[gameScore length]-1 will return the index of the final character, which would be a ,
+}
+
 @end

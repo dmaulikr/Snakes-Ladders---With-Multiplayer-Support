@@ -115,4 +115,10 @@
     }
 }
 
+- (NSString *)score {
+    
+    return [NSString stringWithFormat:@"%@: %ld",self.name,(long)self.currentSquare];
+
+}
+
 @end
