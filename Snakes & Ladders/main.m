@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
             NSLog(@"Please press 'r' to roll:");
             NSString *userInput = [InputHandler initiateUserInteraction];
   
-            if ([userInput containsString:@"r"]) {
+            if ([userInput isEqualToString:@"r"]) {
                 [playerManager roll];
             } //add other game logic commands
 
