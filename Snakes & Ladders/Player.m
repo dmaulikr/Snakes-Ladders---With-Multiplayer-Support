@@ -57,26 +57,32 @@
     
 }
 
--(void)roll {
+- (void)roll {
     
     NSInteger randomValue = arc4random_uniform(6)+1;
-    NSLog(@"You rolled a %ld",(long)randomValue);
+    NSLog(@"%@ rolled a %ld",self.name, (long)randomValue);
     NSString *valueString = [NSString stringWithFormat:@"%lu",self.currentSquare + randomValue];
     
     if (self.currentSquare <= 99) {
+        
         if ([[self.gameLogic valueForKey:valueString]integerValue]) {
             self.currentSquare = [[self.gameLogic valueForKey:valueString]integerValue];
             [self bonusTypeChecker:valueString];
-            NSLog(@"Current square: %ld",(long)self.currentSquare);
+            [self output];
+            
         } else {
         
             self.currentSquare += randomValue;
             [self bonusTypeChecker:valueString];
-            NSLog(@"Current square: %ld",(long)self.currentSquare);
+            [self output];
+            
         }
     }
+}
+
+- (void)output {
     
-    
+    NSLog(@"%@ landed on square: %ld",self.name, (long)self.currentSquare);
 }
 
 - (void)bonusTypeChecker:(NSString *)stringValue {
@@ -100,7 +106,7 @@
 - (void)gameStateChecker {
     
     if (self.currentSquare >= 100) {
-        NSLog(@"Congratulations! You win!");
+//        NSLog(@"Congratulations! You win!");
         //disable loop
         self.gameOver = YES;
         

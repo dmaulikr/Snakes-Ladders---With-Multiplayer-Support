@@ -11,10 +11,15 @@
 
 @interface PlayerManager : NSObject
 
+@property (nonatomic) BOOL gameOver;
 @property (nonatomic) NSMutableArray <Player *> *players;
+@property (nonatomic) NSInteger currentIndex;
 
+- (void)createPlayers:(int)numberOfPlayers;
+- (Player *)currentActivePlayer;
 
--(void)createPlayers:(int)numberOfPlayers;
-
+- (void)roll;
+- (void)output;
+- (void)gameStateChecker;
 
 @end

@@ -13,7 +13,6 @@
 +(NSString *)initiateUserInteraction {
     
     char inputChars[255];
-    printf("Please enter your answer: ");
     fgets(inputChars, 255, stdin);
     NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
     NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
@@ -26,12 +25,4 @@
 
 @end
 
-
-//char inputChars[255];
-//printf("Please enter your answer: ");
-//fgets(inputChars, 255, stdin);
-//NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-//NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-//NSString *parsedString = [result stringByTrimmingCharactersInSet:charSet];
-//NSInteger parsedStringIntValue = [parsedString intValue];
 

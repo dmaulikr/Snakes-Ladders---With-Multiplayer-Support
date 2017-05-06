@@ -17,6 +17,7 @@
 
 - (instancetype)initWithName:(NSString *)name;
 - (void)roll;
+- (void)output;
 - (void)gameStateChecker;
 
 @end
