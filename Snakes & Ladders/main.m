@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
             
         [playerManager.players removeAllObjects];
         playerManager.gameOver = NO;
-        printf("Welcome to Snakes and Ladders!\n\nPlease enter a number between 1 and 4 to select the amount of players for your game:\n");
+        printf("Welcome to Snakes and Ladders!\n\nYou can enter quit at anytime to stop the game.\n\nPlease enter a number between 1 and 4 to select the amount of players for your game:\n");
             while (!playerManager.gameOver) {
                 
                 BOOL immediateQuit = NO;
@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
                     if (([userInput intValue] > 0) && ([userInput intValue] < 5)){
                             //good input, have playerManager create players
                         [playerManager createPlayers:[userInput intValue]];
-                        NSLog(@"%lu players successfully created!",(unsigned long)[playerManager.players count]);
+                        NSLog(@"%lu players successfully created!\n",(unsigned long)[playerManager.players count]);
                     }else if ([userInput isEqualToString:@"quit"]) {
                         immediateQuit = YES;
                         break;
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
                     break;
                 }
 
-                NSLog(@"Please press 'r' to roll:");
+                NSLog(@"It is %@'s turn! Please press 'r' to roll:", [playerManager currentActivePlayer].name);
                 NSString *userRawInput = [InputHandler initiateUserInteraction];
                 NSString *userInput = [userRawInput lowercaseString];
                 
@@ -58,13 +58,22 @@ int main(int argc, const char * argv[]) {
                         NSLog(@"%@",[playerManager score]);
                         
                 }   else if ([userInput isEqualToString:@"quit"]) {
-                        gameLoop = NO;
+                        NSLog(@"Would you like to quit, or restart the game?");
+                        NSString *userRawInput = [InputHandler initiateUserInteraction];
+                        NSString *userInput = [userRawInput lowercaseString];
                     
-                        break;
+                        if ([userInput isEqualToString:@"quit"]) {
+                            gameLoop = NO;
+                            break;
+                        } else if ([userInput isEqualToString:@"restart"]){
+                            NSLog(@"Restarting!\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n");
+                            break;
+                        }
+                    
                 }
  
                 }
-                               //add other game logic commands
+            
 
             
         }
