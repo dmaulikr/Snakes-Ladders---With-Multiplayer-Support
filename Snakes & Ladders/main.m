@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
             
         [playerManager.players removeAllObjects];
         playerManager.gameOver = NO;
-        printf("Welcome to Snakes and Ladders!\n\nYou can enter quit at anytime to stop the game.\n\nPlease enter a number between 1 and 4 to select the amount of players for your game:\n");
+        printf("Welcome to Snakes and Ladders!\n\nYou can enter 'quit' at anytime to exit the game. You can also enter 'restart' during a game if you would like to restart or change the amount of players.\n\nPlease enter a number between 1 and 4 to select the amount of players for your game:\n");
             while (!playerManager.gameOver) {
                 
                 BOOL immediateQuit = NO;
@@ -69,7 +69,9 @@ int main(int argc, const char * argv[]) {
                             NSLog(@"Restarting!\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n");
                             break;
                         }
-                    
+                }   else if ([userInput isEqualToString:@"restart"]) {
+                        NSLog(@"Restarting!\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n");
+                        break;
                 }
  
                 }
